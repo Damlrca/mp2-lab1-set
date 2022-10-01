@@ -7,6 +7,12 @@
 
 #include "tbitfield.h"
 
+static constexpr int __st2(const int x) {
+    return (x <= 1 ? 0 : __st2(x >> 1) + 1);
+}
+static constexpr int shift = 3 + __st2(sizeof(TELEM));
+
+
 TBitField::TBitField(int len)
 {
     if (len < 0)

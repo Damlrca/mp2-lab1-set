@@ -14,11 +14,6 @@ using namespace std;
 
 typedef unsigned int TELEM;
 
-static constexpr int __st2(const int x) {
-	return (x <= 1 ? 0 : __st2(x >> 1) + 1);
-}
-constexpr int shift = 3 + __st2(sizeof(TELEM));
-
 class TBitField
 {
 private:
